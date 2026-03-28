@@ -11,6 +11,11 @@ function App() {
     setTarefa("");
   }
 
+  function removerTarefa(index) {
+    const novaLista = lista.filter((_, i) => i !== index);
+    setLista(novaLista);
+  }
+
   return (
     <div>
       <h1>To-Do DevOps</h1>
@@ -28,7 +33,12 @@ function App() {
 
       <ul>
         {lista.map((item, index) => (
-          <li key={index}>{item}</li>
+          <li key={index}>
+            {item}
+            <button onClick={() => removerTarefa(index)}>
+              ❌
+            </button>
+          </li>
         ))}
       </ul>
     </div>
